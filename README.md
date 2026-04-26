@@ -10,7 +10,7 @@
 | **Private storage** | `https://jetvaults.blob.core.windows.net/elad-targetprice-electra-megurim-private/` |
 | **Public container** | `elad-targetprice-electra-megurim` |
 | **Private container** | `elad-targetprice-electra-megurim-private` |
-| **Activated** | No |
+| **Activated** | Yes |
 
 ## CNAME
 

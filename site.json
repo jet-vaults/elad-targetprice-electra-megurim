@@ -4,5 +4,5 @@
   "nameservers": [],
   "storage": "https://jetvaults.blob.core.windows.net/elad-targetprice-electra-megurim/",
   "private_storage": "https://jetvaults.blob.core.windows.net/elad-targetprice-electra-megurim-private/",
-  "activated": false
+  "activated": true
 }
