@@ -1,0 +1,8 @@
+{
+  "url": "https://elad-targetprice.electra-megurim.com",
+  "pages_url": "https://elad-targetprice-electra-megurim.pages.dev",
+  "nameservers": [],
+  "storage": "https://jetvaults.blob.core.windows.net/elad-targetprice-electra-megurim/",
+  "private_storage": "https://jetvaults.blob.core.windows.net/elad-targetprice-electra-megurim-private/",
+  "activated": false
+}
