@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>אלקטרה מגורים · אלעד — הלב החדש של אלעד</title>
-  <meta name="description" content="פרויקט אלקטרה מגורים בלב ההתרחבות החדשה של אלעד — מתחמי מגורים 4–5 בתמל/1081. שכונה חדשה, מתקדמת ומתוכננת מהיסוד.">
+  <meta name="description" content="פרויקט אלקטרה מגורים בלב ההתרחבות החדשה של אלעד — מתחמי מגורים 4–5 בתמל/1081. 234 יחידות דיור, מהן 188 במחיר מטרה.">
   <meta name="theme-color" content="#0a1d3f">
 
   <link rel="icon" type="image/png" href="assets/logo/electra-residences-logo-heb.png">
@@ -12,13 +12,17 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;600;700&family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@200;300;400;500;700;800;900&family=Noto+Serif+Hebrew:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="assets/css/style.css">
 
   <link rel="preload" as="image" href="assets/gallery/render-11_1.jpg">
+  <link rel="preload" as="image" href="assets/gallery/render-11_2.jpg">
 </head>
 <body>
+
+  <!-- Top progress bar -->
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
 
   <!-- Header -->
   <header class="site-header">
@@ -26,8 +30,14 @@
       <a href="#top" class="site-header__logo" aria-label="אלקטרה מגורים">
         <img src="assets/logo/electra-residences-logo-heb.png" alt="אלקטרה מגורים">
       </a>
-      <a href="#inventory" class="btn btn--primary">
-        מלאי דירות
+      <nav class="site-nav" aria-label="ראשי">
+        <a href="#project">הפרויקט</a>
+        <a href="#neighborhood">השכונה</a>
+        <a href="#gallery">גלריה</a>
+        <a href="#downloads">מסמכים</a>
+      </nav>
+      <a href="#downloads" class="btn btn--primary">
+        <span>מסמכים להורדה</span>
         <span class="arrow" aria-hidden="true">←</span>
       </a>
     </div>
@@ -35,130 +45,241 @@
 
   <!-- Hero -->
   <section class="hero" id="top">
-    <div class="hero__bg">
-      <img src="assets/gallery/render-11_1.jpg" alt="" fetchpriority="high">
+    <div class="hero__slides">
+      <div class="hero__slide is-active"><img src="assets/gallery/render-11_1.jpg" alt="" fetchpriority="high"></div>
+      <div class="hero__slide"><img src="assets/gallery/render-11_2.jpg" alt="" loading="lazy"></div>
+      <div class="hero__slide"><img src="assets/gallery/render-11_5.jpg" alt="" loading="lazy"></div>
+      <div class="hero__slide"><img src="assets/gallery/render-11_8.jpg" alt="" loading="lazy"></div>
     </div>
     <div class="hero__overlay"></div>
+    <div class="hero__grain" aria-hidden="true"></div>
+
     <div class="hero__inner">
-      <div class="hero__logo">
-        <img src="assets/logo/electra-residences-logo-heb.png" alt="אלקטרה מגורים">
-      </div>
-      <span class="hero__kicker">אלקטרה מגורים · אלעד</span>
-      <h1 class="hero__title">הלב החדש של אלעד</h1>
+      <span class="hero__kicker">תמל/1081 · מתחמי מגורים 4–5</span>
+      <h1 class="hero__title">
+        <span class="hero__title-line">הלב החדש</span>
+        <span class="hero__title-line hero__title-line--accent">של אלעד</span>
+      </h1>
+      <p class="hero__lede">פרויקט מגורים מודרני של אלקטרה מגורים — 234 יחידות דיור בלב ההתרחבות החדשה של העיר.</p>
       <div class="hero__cta">
-        <a href="#inventory" class="btn btn--ghost">
-          מלאי דירות
-          <span class="arrow" aria-hidden="true">←</span>
-        </a>
+        <a href="#project" class="btn btn--ghost"><span>גלו את הפרויקט</span><span class="arrow" aria-hidden="true">←</span></a>
+        <a href="#gallery" class="btn btn--link">לגלריית הפרויקט</a>
       </div>
     </div>
-    <a href="#city" class="hero__scroll" aria-label="גלילה">גלילה</a>
+
+    <div class="hero__strip">
+      <div class="hero__strip-inner">
+        <div class="hero__chip"><span class="hero__chip-num" data-count="234">0</span><span class="hero__chip-label">יחידות דיור</span></div>
+        <div class="hero__chip"><span class="hero__chip-num" data-count="188">0</span><span class="hero__chip-label">דירות במחיר מטרה</span></div>
+        <div class="hero__chip"><span class="hero__chip-num" data-count="7">0</span><span class="hero__chip-label">בניינים</span></div>
+        <div class="hero__chip"><span class="hero__chip-num">2–6</span><span class="hero__chip-label">חדרים ופנטהאוזים</span></div>
+      </div>
+    </div>
+
+    <a href="#project" class="hero__scroll" aria-label="גלילה"><span>גלילה</span></a>
   </section>
 
-  <!-- City of Elad -->
-  <section class="section section--paper" id="city">
+  <!-- THE PROJECT (lead with the project) -->
+  <section class="section section--project" id="project">
+    <div class="container">
+      <div class="featured reveal">
+        <div class="featured__bg" aria-hidden="true"></div>
+        <div class="featured__head">
+          <span class="eyebrow eyebrow--light">הפרויקט</span>
+          <h2 class="heading heading--display">אלקטרה באלעד</h2>
+        </div>
+        <div class="featured__grid">
+          <div class="featured__copy">
+            <p class="body-text body-text--lede">תוכנן ע"י משרד <em>איצקין אדריכלים</em>, ממוקם בלב החדש של אלעד, במתחם 71996 (מגרשים 30, 38 ו־39). הפרויקט כולל 234 יחידות דיור — 188 דירות במסגרת מחיר מטרה ו־46 דירות לשוק החופשי.</p>
+            <p class="body-text">מתחם מגורים מודרני הכולל 7 בניינים בני 7–8 קומות, המעניקים תחושת פרטיות לצד קהילה מתגבשת. באחד מבנייני הפרויקט מתוכננת קומת מסחר, אשר צפויה להציע מגוון שירותים לנוחות הדיירים. תמהיל הדירות מגוון וכולל דירות 2–6 חדרים ופנטהאוזים — כל הדירות כוללות מרפסות סוכה מרווחות ותקניות, המתוכננות בקפידה אדריכלית.</p>
+            <p class="body-text">מיקומו של הפרויקט בתוך מתחמי המגורים המרכזיים של תמל/1081 מעניק לדיירים יתרון משמעותי — מגורים בשכונה חדשה ומתוכננת מהיסוד, לצד התפתחות מהירה של סביבת מגורים מלאה.</p>
+          </div>
+          <ul class="featured-stats">
+            <li><span class="num" data-count="234">234</span><span class="label">יחידות דיור</span></li>
+            <li><span class="num" data-count="188">188</span><span class="label">במחיר מטרה</span></li>
+            <li><span class="num" data-count="7">7</span><span class="label">בניינים</span></li>
+            <li><span class="num">7–8</span><span class="label">קומות</span></li>
+            <li><span class="num">2–6</span><span class="label">חדרים</span></li>
+            <li><span class="num">סוכה</span><span class="label">מרפסות בכל דירה</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE NEW HEART (location) -->
+  <section class="section section--paper" id="location">
     <div class="container">
       <div class="split">
         <div class="split__media reveal">
-          <img src="assets/gallery/render-11_3.jpg" alt="" loading="lazy">
-        </div>
-        <div class="split__text reveal reveal-delay-1">
-          <span class="eyebrow">העיר</span>
-          <h2 class="heading">אלעד – עיר בצמיחה מתמדת</h2>
-          <p class="body-text">אלעד היא אחת הערים הצעירות והצומחות בישראל, עם למעלה מ־50,000 תושבים ונחשבת כאחת הערים המבוקשות בקרב הציבור החרדי. העיר מתוכננת סביב חיי קהילה, וממשיכה להשקיע באופן עקבי במוסדות חינוך, שירותי קהילה ותשתיות עירוניות. לצד מאות מוסדות חינוך פעילים, אלעד נמצאת בעיצומו של מהלך פיתוח רחב היקף במסגרת הסכמי גג ותוכניות ממשלתיות – שממצבים אותה כאחת הערים עם פוטנציאל הצמיחה המשמעותי ביותר במרכז הארץ.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- The new heart of Elad -->
-  <section class="section section--tinted">
-    <div class="container">
-      <div class="split split--reverse">
-        <div class="split__media split__media--wide reveal">
           <img src="assets/gallery/render-11_2.jpg" alt="" loading="lazy">
+          <span class="split__badge">תמל/1081</span>
         </div>
         <div class="split__text reveal reveal-delay-1">
           <span class="eyebrow">המיקום</span>
-          <h2 class="heading">הלב החדש של אלעד</h2>
-          <p class="body-text">פרויקט אלקטרה מגורים ממוקם בלב ההתרחבות המשמעותית ביותר של העיר –הלב החדש של אלעד, במסגרת תוכנית תמל/1081. מדובר במהלך תכנוני רחב היקף על שטח של כ־2,600 דונם, הכולל כ־4,200 יחידות דיור, לצד שטחי ציבור, פארקים, מסחר ותעסוקה.זהו האזור שבו מתרכזת הצמיחה העתידית של אלעד – שכונה חדשה שמתוכננת מהיסוד, עם תשתיות מתקדמות ומעטפת מלאה לחיי משפחה.</p>
+          <h2 class="heading">בלב ההתרחבות<br>המשמעותית של אלעד</h2>
+          <p class="body-text">פרויקט אלקטרה מגורים ממוקם בלב ההתרחבות המשמעותית ביותר של העיר — הלב החדש של אלעד, במסגרת תוכנית תמל/1081. מהלך תכנוני רחב היקף על שטח של כ־2,600 דונם, הכולל כ־4,200 יחידות דיור, לצד שטחי ציבור, פארקים, מסחר ותעסוקה.</p>
+          <p class="body-text">זהו האזור שבו מתרכזת הצמיחה העתידית של אלעד — שכונה חדשה שמתוכננת מהיסוד, עם תשתיות מתקדמות ומעטפת מלאה לחיי משפחה.</p>
+          <ul class="metric-list">
+            <li><strong>2,600</strong><span>דונם</span></li>
+            <li><strong>4,200</strong><span>יחידות דיור בתמל</span></li>
+            <li><strong>2,765</strong><span>במתחמי 4–5</span></li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- About the neighborhood -->
-  <section class="section section--paper">
+  <!-- ABOUT THE NEIGHBORHOOD -->
+  <section class="section section--tinted" id="neighborhood">
     <div class="container">
       <div class="section-header reveal">
         <span class="eyebrow">השכונה</span>
-        <h2 class="heading">אודות השכונה – תמל/1081 מתחמי מגורים 4–5</h2>
+        <h2 class="heading">תמל/1081 · מתחמי מגורים 4–5</h2>
+        <p class="body-text body-text--lede">הפרויקט ממוקם במתחמי המגורים המרכזיים של תמל/1081 — מתחמים 4 ו־5, ליבת הפיתוח של השכונה החדשה. במתחמים אלו מתוכננות כ־2,765 יחידות דיור, מה שהופך את האזור לאחד ממוקדי המגורים המרכזיים בעיר בשנים הקרובות. מיקומה של השכונה באזור מוגבה מעניק תחושת פתיחות ומרחב, עם נוף פתוח המשתלב בסביבה הטבעית.</p>
       </div>
-      <div class="prose reveal reveal-delay-1">
-        <p class="body-text">הפרויקט ממוקם במתחמי המגורים המרכזיים של תמל/1081 – מתחמים 4 ו־5, שהם ליבת הפיתוח של השכונה החדשה. במתחמים אלו מתוכננות כ־2,765 יחידות דיור – מה שהופך את האזור לאחד ממוקדי המגורים המרכזיים בעיר בשנים הקרובות.</p>
-        <p class="body-text">מיקומה של השכונה באזור מוגבה מעניק תחושת פתיחות ומרחב, עם נוף פתוח המשתלב בסביבה הטבעית של האזור.</p>
-        <p class="body-text">התכנון כולל:</p>
-      </div>
-      <ul class="feature-list reveal reveal-delay-2">
-        <li>בנייה רוויה של 7–8 קומות</li>
-        <li>רחובות ושדרה מרכזית המחוברת לעיר הקיימת</li>
-        <li>שילוב מסחר ושירותים בקומות הקרקע</li>
-        <li>שילוב מוסדות ציבור בתוך סביבת המגורים</li>
-        <li>פארקים ומרחבים ירוקים</li>
+      <ul class="feature-grid reveal reveal-delay-1">
+        <li>
+          <span class="feature-grid__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>
+          </span>
+          <h3>בנייה רוויה</h3>
+          <p>בניינים בני 7–8 קומות עם תכנון אדריכלי מוקפד.</p>
+        </li>
+        <li>
+          <span class="feature-grid__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 21V10l8-6 8 6v11M4 14h16M9 21v-5h6v5"/></svg>
+          </span>
+          <h3>שדרה מרכזית</h3>
+          <p>רחובות ושדרה ראשית המחוברת לעיר הקיימת.</p>
+        </li>
+        <li>
+          <span class="feature-grid__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M3 21V7l9-4 9 4v14M9 21v-6h6v6M7 11h2M11 11h2M15 11h2"/></svg>
+          </span>
+          <h3>מסחר ושירותים</h3>
+          <p>שילוב מסחר ושירותים בקומות הקרקע.</p>
+        </li>
+        <li>
+          <span class="feature-grid__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg>
+          </span>
+          <h3>מוסדות ציבור</h3>
+          <p>מוסדות ציבור משולבים בתוך סביבת המגורים.</p>
+        </li>
+        <li>
+          <span class="feature-grid__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M2 12h20M12 2c-3 4-3 8-3 10s0 6 3 10M12 2c3 4 3 8 3 10s0 6-3 10"/></svg>
+          </span>
+          <h3>פארקים ירוקים</h3>
+          <p>מרחבים ירוקים, מסלולי הליכה ופנאי לכל המשפחה.</p>
+        </li>
+        <li>
+          <span class="feature-grid__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2c3 4 3 8 3 10s0 6-3 10c-3-4-3-8-3-10s0-6 3-10z"/></svg>
+          </span>
+          <h3>תכנון מהיסוד</h3>
+          <p>תשתיות מתקדמות ומעטפת שירותים שלמה.</p>
+        </li>
       </ul>
     </div>
   </section>
 
-  <!-- Family services -->
-  <section class="section section--tinted">
+  <!-- FAMILY SERVICES -->
+  <section class="section section--paper" id="family">
     <div class="container">
       <div class="section-header reveal">
         <span class="eyebrow">איכות חיים</span>
-        <h2 class="heading">כל מה שמשפחה צריכה – קרוב לבית</h2>
+        <h2 class="heading">כל מה שמשפחה צריכה — קרוב לבית</h2>
+        <p class="body-text body-text--lede">השכונה תוכננה מתוך הבנה עמוקה של צורכי משפחות, עם היקפים רחבים של מוסדות ציבור, קהילה ופנאי.</p>
       </div>
-      <div class="prose reveal reveal-delay-1">
-        <p class="body-text">השכונה תוכננה מתוך הבנה עמוקה של צורכי משפחות, עם היקפים רחבים של מוסדות ציבור, קהילה ופנאי:</p>
+      <div class="services reveal reveal-delay-1">
+        <div class="service-card">
+          <span class="service-card__num">01</span>
+          <h3>חינוך לכל הגילאים</h3>
+          <ul>
+            <li>עשרות מעונות יום וגני ילדים</li>
+            <li>בתי ספר יסודיים ועל־יסודיים</li>
+            <li>מוסדות חינוך מיוחד</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <span class="service-card__num">02</span>
+          <h3>בריאות וקהילה</h3>
+          <ul>
+            <li>מרפאות שכונתיות ושירותי בריאות</li>
+            <li>מרכזי קהילה ותרבות</li>
+            <li>מוסדות נוער וקהילה</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <span class="service-card__num">03</span>
+          <h3>ספורט ופנאי</h3>
+          <ul>
+            <li>מתקני ספורט ופעילות</li>
+            <li>פארקים ושטחים פתוחים</li>
+            <li>מסלולי הליכה ורכיבה</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <span class="service-card__num">04</span>
+          <h3>חיי דת וקהילה</h3>
+          <ul>
+            <li>בתי כנסת בפריסה שכונתית</li>
+            <li>מקוואות נשים וגברים</li>
+            <li>מוסדות דת כחלק בלתי נפרד מהתכנון</li>
+          </ul>
+        </div>
       </div>
-      <ul class="facility-list reveal reveal-delay-2">
-        <li>עשרות מעונות יום וגני ילדים</li>
-        <li>בתי ספר יסודיים ועל־יסודיים</li>
-        <li>מוסדות חינוך מיוחד</li>
-        <li>מרפאות שכונתיות ושירותי בריאות</li>
-        <li>מרכזי קהילה ותרבות</li>
-        <li>מתקני ספורט ופעילות</li>
-        <li>מוסדות נוער וקהילה</li>
-        <li>בתי כנסת בפריסה שכונתית</li>
-        <li>מקוואות נשים וגברים</li>
-        <li>שילוב מוסדות דת כחלק בלתי נפרד מהתכנון</li>
-      </ul>
-      <div class="closing-note reveal reveal-delay-3">
-        כל אלה יוצרים סביבת מגורים שמאפשרת לנהל חיי משפחה מלאים – בנוחות ובקרבה לבית.
+      <div class="closing-note reveal reveal-delay-2">
+        כל אלה יוצרים סביבת מגורים שמאפשרת לנהל חיי משפחה מלאים — בנוחות ובקרבה לבית.
       </div>
     </div>
   </section>
 
-  <!-- Parks & open spaces — large statement -->
-  <section class="section section--paper">
+  <!-- PARKS — large statement -->
+  <section class="section section--statement">
+    <div class="statement-bg" aria-hidden="true">
+      <img src="assets/gallery/render-11_6.jpg" alt="" loading="lazy">
+    </div>
     <div class="container">
       <div class="statement reveal">
-        <span class="eyebrow">טבע ומרחב</span>
-        <h2 class="heading statement__heading">פארקים, מרחבים פתוחים ואיכות חיים</h2>
+        <span class="eyebrow eyebrow--light">טבע ומרחב</span>
+        <h2 class="heading heading--display statement__heading">פארקים, מרחבים פתוחים<br>ואיכות חיים</h2>
         <p class="statement__text">לצד הפיתוח העירוני, נהנית השכונה מקרבה לשטחי טבע פתוחים, מרחב ירוק רחב עם מסלולי הליכה, רכיבה ופנאי למשפחות.</p>
-        <p class="statement__text">בנוסף, במסגרת תמל/1081 מתוכננים שטחים ציבוריים פתוחים בהיקף רחב, הכוללים פארקים שכונתיים, רצועות ירוקות ומרחבי משחק ופנאי.</p>
+        <p class="statement__text">במסגרת תמל/1081 מתוכננים שטחים ציבוריים פתוחים בהיקף רחב — פארקים שכונתיים, רצועות ירוקות ומרחבי משחק ופנאי.</p>
         <p class="statement__text statement__text--small">במרחק נסיעה קצר ניתן ליהנות מיער נחשונים.</p>
       </div>
     </div>
   </section>
 
-  <!-- Transportation -->
-  <section class="section section--tinted">
+  <!-- TRANSPORTATION -->
+  <section class="section section--paper" id="transport">
     <div class="container">
       <div class="split">
         <div class="split__text reveal">
           <span class="eyebrow">תחבורה</span>
           <h2 class="heading">נגישות תחבורתית חכמה</h2>
           <p class="body-text">הלב החדש של אלעד נהנה מתכנון תחבורתי מתקדם עם חיבור לצירים ראשיים: קרבה מיידית לכביש 444 ולמחלף אלעד החדש, המאפשר יציאה מהירה לכביש 6 ולכיוון פתח תקווה ובני ברק.</p>
-          <p class="body-text">השכונה מרושתת בקווי תחבורה ציבורית תדירים וקרובה לתחנת הרכבת העתידית בקו המסילה המזרחית, מה שהופך את הנסיעה למרכזי התעסוקה לקלה ומהירה. כך מתקבל איזון נכון בין חיים שקטים וקהילתיים לבין נגישות נוחה למרכזי תעסוקה.</p>
+          <p class="body-text">השכונה מרושתת בקווי תחבורה ציבורית תדירים וקרובה לתחנת הרכבת העתידית בקו המסילה המזרחית — איזון נכון בין חיים שקטים וקהילתיים לבין נגישות נוחה למרכזי תעסוקה.</p>
+          <ul class="transport-list">
+            <li>
+              <span class="transport-list__tag">כביש 444</span>
+              <span class="transport-list__desc">קרבה מיידית למחלף אלעד החדש</span>
+            </li>
+            <li>
+              <span class="transport-list__tag">כביש 6</span>
+              <span class="transport-list__desc">יציאה מהירה לציר הארצי</span>
+            </li>
+            <li>
+              <span class="transport-list__tag">רכבת ישראל</span>
+              <span class="transport-list__desc">תחנה עתידית בקו המסילה המזרחית</span>
+            </li>
+            <li>
+              <span class="transport-list__tag">תח"צ</span>
+              <span class="transport-list__desc">קווי אוטובוס תדירים בתוך השכונה</span>
+            </li>
+          </ul>
         </div>
         <div class="split__media split__media--wide reveal reveal-delay-1">
           <img src="assets/gallery/render-11_5.jpg" alt="" loading="lazy">
@@ -167,83 +288,101 @@
     </div>
   </section>
 
-  <!-- Featured: The Electra project in Elad -->
-  <section class="section section--paper">
+  <!-- THE CITY (broader context) -->
+  <section class="section section--tinted" id="city">
     <div class="container">
-      <div class="featured reveal">
-        <span class="eyebrow">הפרויקט</span>
-        <h2 class="heading">הפרויקט אלקטרה באלעד</h2>
-        <p class="body-text">הפרויקט של אלקטרה מגורים, שתוכנן ע"י משרד איצקין אדריכלים, ממוקם בלב החדש של אלעד, במתחם 71996 (מגרשים 30, 38 ו־39), וכולל 234 יחידות דיור, מהן 188 דירות במסגרת מחיר מטרה ו־46 דירות לשוק החופשי. הפרויקט מתוכנן כמתחם מגורים מודרני הכולל 7 בניינים בני 7–8 קומות, המעניקים תחושת פרטיות לצד קהילה מתגבשת. באחד מבנייני הפרויקט מתוכננת קומת מסחר, אשר צפויה להציע מגוון שירותים לנוחות הדיירים ולשימוש יומיומי. תמהיל הדירות מגוון וכולל דירות 2–6 חדרים ופנטהאוזים, כאשר כל הדירות כוללות מרפסות סוכה מרווחות ותקניות, המתוכננות בקפידה אדריכלית.</p>
-        <p class="body-text">מיקומו של הפרויקט בתוך מתחמי המגורים המרכזיים של תמל/1081 מעניק לדיירים יתרון משמעותי – מגורים בשכונה חדשה ומתוכננת מהיסוד, לצד התפתחות מהירה של סביבת מגורים מלאה הכוללת מוסדות חינוך, שטחים פתוחים ושירותים קהילתיים.</p>
-        <ul class="featured-stats">
-          <li><span class="num">234</span><span class="label">יחידות דיור</span></li>
-          <li><span class="num">7</span><span class="label">בניינים</span></li>
-          <li><span class="num">7–8</span><span class="label">קומות</span></li>
-          <li><span class="num">2–6</span><span class="label">חדרים ופנטהאוזים</span></li>
-        </ul>
+      <div class="split split--reverse">
+        <div class="split__media split__media--wide reveal">
+          <img src="assets/gallery/render-11_3.jpg" alt="" loading="lazy">
+        </div>
+        <div class="split__text reveal reveal-delay-1">
+          <span class="eyebrow">העיר</span>
+          <h2 class="heading">אלעד — עיר בצמיחה מתמדת</h2>
+          <p class="body-text">אלעד היא אחת הערים הצעירות והצומחות בישראל, עם למעלה מ־50,000 תושבים ונחשבת כאחת הערים המבוקשות בקרב הציבור החרדי. העיר מתוכננת סביב חיי קהילה, וממשיכה להשקיע באופן עקבי במוסדות חינוך, שירותי קהילה ותשתיות עירוניות.</p>
+          <p class="body-text">לצד מאות מוסדות חינוך פעילים, אלעד נמצאת בעיצומו של מהלך פיתוח רחב היקף במסגרת הסכמי גג ותוכניות ממשלתיות — שממצבים אותה כאחת הערים עם פוטנציאל הצמיחה המשמעותי ביותר במרכז הארץ.</p>
+          <ul class="metric-list">
+            <li><strong>50K+</strong><span>תושבים</span></li>
+            <li><strong>מאות</strong><span>מוסדות חינוך</span></li>
+            <li><strong>הסכם גג</strong><span>פיתוח ממשלתי</span></li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Gallery -->
+  <!-- GALLERY -->
   <section class="section section--paper" id="gallery">
     <div class="container">
       <div class="section-header center reveal">
         <span class="eyebrow">גלריה</span>
-        <h2 class="heading heading--lg">גלריית הפרויקט</h2>
+        <h2 class="heading heading--display">גלריית הפרויקט</h2>
+        <p class="body-text body-text--lede">הצצה אל הדמיות הפרויקט והתכנון האדריכלי.</p>
       </div>
-      <div class="gallery reveal reveal-delay-1">
-        <a class="gallery__item" href="assets/gallery/render-11_1.jpg"><img src="assets/gallery/render-11_1.jpg" alt="הדמיית הפרויקט" loading="lazy"></a>
-        <a class="gallery__item" href="assets/gallery/render-11_2.jpg"><img src="assets/gallery/render-11_2.jpg" alt="הדמיית הפרויקט" loading="lazy"></a>
-        <a class="gallery__item" href="assets/gallery/render-11_3.jpg"><img src="assets/gallery/render-11_3.jpg" alt="הדמיית הפרויקט" loading="lazy"></a>
-        <a class="gallery__item" href="assets/gallery/render-11_4.jpg"><img src="assets/gallery/render-11_4.jpg" alt="הדמיית הפרויקט" loading="lazy"></a>
-        <a class="gallery__item" href="assets/gallery/render-11_5.jpg"><img src="assets/gallery/render-11_5.jpg" alt="הדמיית הפרויקט" loading="lazy"></a>
-        <a class="gallery__item" href="assets/gallery/render-11_6.jpg"><img src="assets/gallery/render-11_6.jpg" alt="הדמיית הפרויקט" loading="lazy"></a>
-        <a class="gallery__item" href="assets/gallery/render-11_7.jpg"><img src="assets/gallery/render-11_7.jpg" alt="הדמיית הפרויקט" loading="lazy"></a>
-        <a class="gallery__item" href="assets/gallery/render-11_8.jpg"><img src="assets/gallery/render-11_8.jpg" alt="הדמיית הפרויקט" loading="lazy"></a>
-        <a class="gallery__item" href="assets/gallery/render-11_10.jpg"><img src="assets/gallery/render-11_10.jpg" alt="הדמיית הפרויקט" loading="lazy"></a>
-        <a class="gallery__item" href="assets/gallery/render-11_11.jpg"><img src="assets/gallery/render-11_11.jpg" alt="הדמיית הפרויקט" loading="lazy"></a>
-        <a class="gallery__item" href="assets/gallery/render-11_12.jpg"><img src="assets/gallery/render-11_12.jpg" alt="הדמיית הפרויקט" loading="lazy"></a>
-        <a class="gallery__item" href="assets/gallery/render-11_13.jpg"><img src="assets/gallery/render-11_13.jpg" alt="הדמיית הפרויקט" loading="lazy"></a>
-        <a class="gallery__item" href="assets/gallery/render-11_15.jpg"><img src="assets/gallery/render-11_15.jpg" alt="הדמיית הפרויקט" loading="lazy"></a>
-        <a class="gallery__item" href="assets/gallery/render-11_16.jpg"><img src="assets/gallery/render-11_16.jpg" alt="הדמיית הפרויקט" loading="lazy"></a>
-        <a class="gallery__item" href="assets/gallery/render-11_17.jpg"><img src="assets/gallery/render-11_17.jpg" alt="הדמיית הפרויקט" loading="lazy"></a>
-        <a class="gallery__item" href="assets/gallery/render-11_18.jpg"><img src="assets/gallery/render-11_18.jpg" alt="הדמיית הפרויקט" loading="lazy"></a>
-        <a class="gallery__item" href="assets/gallery/render-11_20.jpg"><img src="assets/gallery/render-11_20.jpg" alt="הדמיית הפרויקט" loading="lazy"></a>
-        <a class="gallery__item" href="assets/plans/plan-4_1.jpg"><img src="assets/plans/plan-4_1.jpg" alt="תכנית הפרויקט" loading="lazy"></a>
-        <a class="gallery__item" href="assets/plans/plan-4_4.jpg"><img src="assets/plans/plan-4_4.jpg" alt="תכנית הפרויקט" loading="lazy"></a>
-        <a class="gallery__item" href="assets/plans/plan-4_10.jpg"><img src="assets/plans/plan-4_10.jpg" alt="תכנית הפרויקט" loading="lazy"></a>
-        <a class="gallery__item" href="assets/plans/plan-4_13.jpg"><img src="assets/plans/plan-4_13.jpg" alt="תכנית הפרויקט" loading="lazy"></a>
+      <div class="gallery-tabs reveal reveal-delay-1">
+        <button class="gallery-tab is-active" data-filter="renders">הדמיות</button>
+        <button class="gallery-tab" data-filter="plans">תוכניות דירה</button>
+        <button class="gallery-tab" data-filter="all">הכול</button>
+      </div>
+      <div class="gallery reveal reveal-delay-2">
+        <a class="gallery__item" data-cat="renders" href="assets/gallery/render-11_1.jpg"><img src="assets/gallery/render-11_1.jpg" alt="הדמיית הפרויקט" loading="lazy"></a>
+        <a class="gallery__item" data-cat="renders" href="assets/gallery/render-11_2.jpg"><img src="assets/gallery/render-11_2.jpg" alt="הדמיית הפרויקט" loading="lazy"></a>
+        <a class="gallery__item" data-cat="renders" href="assets/gallery/render-11_3.jpg"><img src="assets/gallery/render-11_3.jpg" alt="הדמיית הפרויקט" loading="lazy"></a>
+        <a class="gallery__item" data-cat="renders" href="assets/gallery/render-11_4.jpg"><img src="assets/gallery/render-11_4.jpg" alt="הדמיית הפרויקט" loading="lazy"></a>
+        <a class="gallery__item" data-cat="renders" href="assets/gallery/render-11_5.jpg"><img src="assets/gallery/render-11_5.jpg" alt="הדמיית הפרויקט" loading="lazy"></a>
+        <a class="gallery__item" data-cat="renders" href="assets/gallery/render-11_6.jpg"><img src="assets/gallery/render-11_6.jpg" alt="הדמיית הפרויקט" loading="lazy"></a>
+        <a class="gallery__item" data-cat="renders" href="assets/gallery/render-11_7.jpg"><img src="assets/gallery/render-11_7.jpg" alt="הדמיית הפרויקט" loading="lazy"></a>
+        <a class="gallery__item" data-cat="renders" href="assets/gallery/render-11_8.jpg"><img src="assets/gallery/render-11_8.jpg" alt="הדמיית הפרויקט" loading="lazy"></a>
+        <a class="gallery__item" data-cat="renders" href="assets/gallery/render-11_10.jpg"><img src="assets/gallery/render-11_10.jpg" alt="הדמיית הפרויקט" loading="lazy"></a>
+        <a class="gallery__item" data-cat="renders" href="assets/gallery/render-11_11.jpg"><img src="assets/gallery/render-11_11.jpg" alt="הדמיית הפרויקט" loading="lazy"></a>
+        <a class="gallery__item" data-cat="renders" href="assets/gallery/render-11_12.jpg"><img src="assets/gallery/render-11_12.jpg" alt="הדמיית הפרויקט" loading="lazy"></a>
+        <a class="gallery__item" data-cat="renders" href="assets/gallery/render-11_13.jpg"><img src="assets/gallery/render-11_13.jpg" alt="הדמיית הפרויקט" loading="lazy"></a>
+        <a class="gallery__item" data-cat="renders" href="assets/gallery/render-11_15.jpg"><img src="assets/gallery/render-11_15.jpg" alt="הדמיית הפרויקט" loading="lazy"></a>
+        <a class="gallery__item" data-cat="renders" href="assets/gallery/render-11_16.jpg"><img src="assets/gallery/render-11_16.jpg" alt="הדמיית הפרויקט" loading="lazy"></a>
+        <a class="gallery__item" data-cat="renders" href="assets/gallery/render-11_17.jpg"><img src="assets/gallery/render-11_17.jpg" alt="הדמיית הפרויקט" loading="lazy"></a>
+        <a class="gallery__item" data-cat="renders" href="assets/gallery/render-11_18.jpg"><img src="assets/gallery/render-11_18.jpg" alt="הדמיית הפרויקט" loading="lazy"></a>
+        <a class="gallery__item" data-cat="renders" href="assets/gallery/render-11_20.jpg"><img src="assets/gallery/render-11_20.jpg" alt="הדמיית הפרויקט" loading="lazy"></a>
+        <a class="gallery__item gallery__item--plan" data-cat="plans" href="assets/plans/plan-4_1.jpg"><img src="assets/plans/plan-4_1.jpg" alt="תוכנית דירה" loading="lazy"><span class="gallery__caption">תוכנית דירה</span></a>
+        <a class="gallery__item gallery__item--plan" data-cat="plans" href="assets/plans/plan-4_4.jpg"><img src="assets/plans/plan-4_4.jpg" alt="תוכנית דירה" loading="lazy"><span class="gallery__caption">תוכנית דירה</span></a>
+        <a class="gallery__item gallery__item--plan" data-cat="plans" href="assets/plans/plan-4_10.jpg"><img src="assets/plans/plan-4_10.jpg" alt="תוכנית דירה" loading="lazy"><span class="gallery__caption">תוכנית דירה</span></a>
+        <a class="gallery__item gallery__item--plan" data-cat="plans" href="assets/plans/plan-4_13.jpg"><img src="assets/plans/plan-4_13.jpg" alt="תוכנית דירה" loading="lazy"><span class="gallery__caption">תוכנית דירה</span></a>
       </div>
     </div>
   </section>
 
-  <!-- About the company -->
-  <section class="section section--tinted about-company">
+  <!-- ABOUT THE COMPANY -->
+  <section class="section section--company">
     <div class="container">
-      <div class="section-header reveal">
-        <span class="eyebrow">היזם</span>
-        <h2 class="heading">אודות אלקטרה מגורים</h2>
-      </div>
-      <div class="prose reveal reveal-delay-1">
-        <p class="body-text">חברת אלקטרה מגורים, מקבוצת אלקטרה בע"מ, ממנפת את העוצמה והניסיון המוכח של חברת האם ליצירת סטנדרט גבוה של מצוינות וחדשנות בשוק המגורים בישראל.</p>
-        <p class="body-text">לאלקטרה מגורים עשרות פרויקטים המציעים חוויית מגורים מודרנית וייחודית, בתפיסה אדריכלית מוקפדת ובאיכות בנייה בסטנדרטים הגבוהים ביותר. החברה מתכננת ומשווקת אלפי יחידות דיור ברחבי הארץ, תוך יכולת מוכחת באיתור הזדמנויות נדל"ניות, בחירת שותפים עסקיים והובלת תהליכי תכנון וביצוע ברמה גבוהה.</p>
-        <p class="body-text">אלקטרה מגורים נמצאת בצמיחה מתמדת, עם כ-7,750 יחידות דיור בשלבי תכנון, שיווק וביצוע – נתון המשקף את היקף הפעילות הרחב, היציבות והאמון שהחברה נהנית ממנו בשוק.</p>
+      <div class="company reveal">
+        <div class="company__logo">
+          <img src="assets/logo/electra-residences-logo-heb.png" alt="אלקטרה מגורים">
+        </div>
+        <div class="company__copy">
+          <span class="eyebrow eyebrow--light">היזם</span>
+          <h2 class="heading heading--light">אודות אלקטרה מגורים</h2>
+          <p class="body-text body-text--light">חברת אלקטרה מגורים, מקבוצת אלקטרה בע"מ, ממנפת את העוצמה והניסיון המוכח של חברת האם ליצירת סטנדרט גבוה של מצוינות וחדשנות בשוק המגורים בישראל.</p>
+          <p class="body-text body-text--light">לאלקטרה מגורים עשרות פרויקטים המציעים חוויית מגורים מודרנית וייחודית, בתפיסה אדריכלית מוקפדת ובאיכות בנייה בסטנדרטים הגבוהים ביותר. החברה מתכננת ומשווקת אלפי יחידות דיור ברחבי הארץ, תוך יכולת מוכחת באיתור הזדמנויות נדל"ניות, בחירת שותפים עסקיים והובלת תהליכי תכנון וביצוע ברמה גבוהה.</p>
+          <ul class="company-stats">
+            <li><strong>~7,750</strong><span>יחידות דיור בתכנון, שיווק וביצוע</span></li>
+            <li><strong>עשרות</strong><span>פרויקטים פעילים</span></li>
+            <li><strong>קבוצת אלקטרה</strong><span>חברת האם</span></li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Downloads -->
+  <!-- DOWNLOADS -->
   <section class="section section--paper" id="downloads">
     <div class="container">
       <div class="section-header center reveal">
         <span class="eyebrow">מסמכים</span>
-        <h2 class="heading">קבצים להורדה</h2>
+        <h2 class="heading heading--display">קבצים להורדה</h2>
+        <p class="body-text body-text--lede">המסמכים הרשמיים של הפרויקט להורדה.</p>
       </div>
       <div class="downloads reveal reveal-delay-1">
         <a class="download-card" href="assets/downloads/מפרט סופי וחתום.pdf" download target="_blank" rel="noopener">
           <span class="download-card__icon" aria-hidden="true">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
               <polyline points="14 2 14 8 20 8"/>
               <line x1="9" y1="13" x2="15" y2="13"/>
@@ -265,7 +404,7 @@
         </a>
         <a class="download-card" href="assets/downloads/ג4 סופי וחתום.pdf" download target="_blank" rel="noopener">
           <span class="download-card__icon" aria-hidden="true">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
               <polyline points="14 2 14 8 20 8"/>
               <line x1="9" y1="13" x2="15" y2="13"/>
@@ -273,7 +412,7 @@
             </svg>
           </span>
           <span class="download-card__body">
-            <span class="download-card__title">ג4 סופי וחתום</span>
+            <span class="download-card__title">טופס ג4 סופי וחתום</span>
             <span class="download-card__meta">PDF · להורדה</span>
           </span>
           <span class="download-card__action">
