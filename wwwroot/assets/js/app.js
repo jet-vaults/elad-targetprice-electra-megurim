@@ -10,6 +10,35 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+  /* ========== Mobile navigation ========== */
+  const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+  const mobileNav = document.getElementById('mobile-nav');
+  const setMobileNav = (open) => {
+    if (!mobileNavToggle || !mobileNav) return;
+    header.classList.toggle('is-menu-open', open);
+    mobileNavToggle.setAttribute('aria-expanded', String(open));
+    mobileNavToggle.setAttribute('aria-label', open ? 'סגירת תפריט' : 'פתיחת תפריט');
+    mobileNav.setAttribute('aria-hidden', String(!open));
+  };
+  if (mobileNavToggle && mobileNav) {
+    mobileNavToggle.addEventListener('click', () => {
+      setMobileNav(!header.classList.contains('is-menu-open'));
+    });
+    mobileNav.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => setMobileNav(false));
+    });
+    document.addEventListener('click', (e) => {
+      if (!header.classList.contains('is-menu-open')) return;
+      if (!header.contains(e.target)) setMobileNav(false);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') setMobileNav(false);
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 720) setMobileNav(false);
+    });
+  }
+
   /* ========== Scroll progress bar ========== */
   const progressBar = document.querySelector('.scroll-progress span');
   const updateProgress = () => {
@@ -80,42 +109,57 @@
     countEls.forEach((el) => { el.textContent = el.getAttribute('data-count'); });
   }
 
-  /* ========== Gallery filtering ========== */
-  const galleryTabs = document.querySelectorAll('.gallery-tab');
-  const galleryItemsAll = document.querySelectorAll('.gallery__item');
-  const applyFilter = (filter) => {
-    galleryItemsAll.forEach((item) => {
-      const cat = item.getAttribute('data-cat');
-      const show = filter === 'all' || cat === filter;
-      item.classList.toggle('is-hidden', !show);
-    });
-  };
-  galleryTabs.forEach((tab) => {
-    tab.addEventListener('click', () => {
-      const filter = tab.getAttribute('data-filter');
-      galleryTabs.forEach((t) => t.classList.toggle('is-active', t === tab));
-      applyFilter(filter);
-    });
-  });
-  // Apply initial filter from active tab
-  const initialTab = document.querySelector('.gallery-tab.is-active');
-  if (initialTab) applyFilter(initialTab.getAttribute('data-filter'));
-
-  /* ========== Lightbox gallery ========== */
+  /* ========== Gallery carousel + lightbox ========== */
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = lightbox.querySelector('img');
   const lightboxClose = lightbox.querySelector('.lightbox__close');
   const lightboxPrev = lightbox.querySelector('.lightbox__nav--prev');
   const lightboxNext = lightbox.querySelector('.lightbox__nav--next');
-  const galleryItems = Array.from(document.querySelectorAll('.gallery__item'));
+  const galleryMain = document.querySelector('.gallery-slider__main');
+  const galleryMainImg = galleryMain ? galleryMain.querySelector('img') : null;
+  const galleryPrev = document.querySelector('.gallery-slider__arrow--prev');
+  const galleryNext = document.querySelector('.gallery-slider__arrow--next');
+  const galleryThumbs = Array.from(document.querySelectorAll('.gallery-thumb'));
+  const galleryItems = galleryThumbs.map((thumb) => ({
+    href: thumb.getAttribute('data-full'),
+    alt: thumb.getAttribute('data-alt') || ''
+  }));
   let currentIndex = 0;
 
-  const visibleItems = () => galleryItems.filter((it) => !it.classList.contains('is-hidden'));
+  const visibleItems = () => galleryItems;
+
+  const setGalleryIndex = (index) => {
+    if (!galleryItems.length || !galleryMain || !galleryMainImg) return;
+    currentIndex = (index + galleryItems.length) % galleryItems.length;
+    const item = galleryItems[currentIndex];
+    galleryMain.href = item.href;
+    galleryMain.classList.toggle('is-plan', galleryThumbs[currentIndex].classList.contains('gallery-thumb--plan'));
+    galleryMainImg.src = item.href;
+    galleryMainImg.alt = item.alt;
+    galleryThumbs.forEach((thumb, i) => {
+      thumb.classList.toggle('is-active', i === currentIndex);
+      if (i === currentIndex) thumb.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+    });
+  };
+
+  galleryThumbs.forEach((thumb, index) => {
+    thumb.addEventListener('click', () => setGalleryIndex(index));
+  });
+  if (galleryPrev) galleryPrev.addEventListener('click', () => setGalleryIndex(currentIndex - 1));
+  if (galleryNext) galleryNext.addEventListener('click', () => setGalleryIndex(currentIndex + 1));
+  if (galleryMain) {
+    galleryMain.addEventListener('click', (e) => {
+      e.preventDefault();
+      openLightbox(currentIndex);
+    });
+  }
 
   const openLightbox = (index) => {
     const items = visibleItems();
+    if (!items.length) return;
     currentIndex = index;
-    lightboxImg.src = items[index].getAttribute('href');
+    lightboxImg.src = items[index].href;
+    lightboxImg.alt = items[index].alt;
     lightbox.classList.add('is-open');
     document.body.style.overflow = 'hidden';
   };
@@ -126,18 +170,12 @@
   };
   const navLightbox = (delta) => {
     const items = visibleItems();
+    if (!items.length) return;
     currentIndex = (currentIndex + delta + items.length) % items.length;
-    lightboxImg.src = items[currentIndex].getAttribute('href');
+    lightboxImg.src = items[currentIndex].href;
+    lightboxImg.alt = items[currentIndex].alt;
+    setGalleryIndex(currentIndex);
   };
-
-  galleryItems.forEach((item) => {
-    item.addEventListener('click', (e) => {
-      e.preventDefault();
-      const items = visibleItems();
-      const idx = items.indexOf(item);
-      if (idx >= 0) openLightbox(idx);
-    });
-  });
   lightboxClose.addEventListener('click', closeLightbox);
   lightboxPrev.addEventListener('click', () => navLightbox(-1));
   lightboxNext.addEventListener('click', () => navLightbox(1));
