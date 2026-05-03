@@ -3,8 +3,9 @@
 
   /* ========== Sticky header state ========== */
   const header = document.querySelector('.site-header');
+  const lockScrolled = document.body.classList.contains('inventory-page');
   const onScroll = () => {
-    if (window.scrollY > 24) header.classList.add('is-scrolled');
+    if (lockScrolled || window.scrollY > 24) header.classList.add('is-scrolled');
     else header.classList.remove('is-scrolled');
   };
   window.addEventListener('scroll', onScroll, { passive: true });
@@ -111,10 +112,10 @@
 
   /* ========== Gallery carousel + lightbox ========== */
   const lightbox = document.getElementById('lightbox');
-  const lightboxImg = lightbox.querySelector('img');
-  const lightboxClose = lightbox.querySelector('.lightbox__close');
-  const lightboxPrev = lightbox.querySelector('.lightbox__nav--prev');
-  const lightboxNext = lightbox.querySelector('.lightbox__nav--next');
+  const lightboxImg = lightbox ? lightbox.querySelector('img') : null;
+  const lightboxClose = lightbox ? lightbox.querySelector('.lightbox__close') : null;
+  const lightboxPrev = lightbox ? lightbox.querySelector('.lightbox__nav--prev') : null;
+  const lightboxNext = lightbox ? lightbox.querySelector('.lightbox__nav--next') : null;
   const galleryMain = document.querySelector('.gallery-slider__main');
   const galleryMainImg = galleryMain ? galleryMain.querySelector('img') : null;
   const galleryPrev = document.querySelector('.gallery-slider__arrow--prev');
@@ -176,17 +177,19 @@
     lightboxImg.alt = items[currentIndex].alt;
     setGalleryIndex(currentIndex);
   };
-  lightboxClose.addEventListener('click', closeLightbox);
-  lightboxPrev.addEventListener('click', () => navLightbox(-1));
-  lightboxNext.addEventListener('click', () => navLightbox(1));
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) closeLightbox();
-  });
-  document.addEventListener('keydown', (e) => {
-    if (!lightbox.classList.contains('is-open')) return;
-    if (e.key === 'Escape') closeLightbox();
-    // RTL: ArrowRight -> previous, ArrowLeft -> next
-    if (e.key === 'ArrowRight') navLightbox(-1);
-    if (e.key === 'ArrowLeft') navLightbox(1);
-  });
+  if (lightbox) {
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxPrev.addEventListener('click', () => navLightbox(-1));
+    lightboxNext.addEventListener('click', () => navLightbox(1));
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('is-open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      // RTL: ArrowRight -> previous, ArrowLeft -> next
+      if (e.key === 'ArrowRight') navLightbox(-1);
+      if (e.key === 'ArrowLeft') navLightbox(1);
+    });
+  }
 })();

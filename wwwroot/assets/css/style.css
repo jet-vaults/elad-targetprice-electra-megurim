@@ -1423,6 +1423,17 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   background: linear-gradient(180deg, var(--blue-50) 0%, var(--white) 34%, var(--off-white) 100%);
   color: var(--blue-900);
 }
+.inventory-page .site-nav a { text-decoration: none !important; }
+.inventory-page .site-nav a::after { display: none; }
+.inventory-page .site-header__cta {
+  background: var(--blue-900) !important;
+  color: var(--white) !important;
+  border-color: transparent !important;
+  box-shadow: 0 6px 20px rgba(10, 29, 63, 0.20) !important;
+  backdrop-filter: none !important;
+  padding: 16px 40px !important;
+  border-radius: 999px !important;
+}
 .inventory-header {
   max-width: var(--container);
   margin: 0 auto;
@@ -1450,6 +1461,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .inventory-hero {
   max-width: 780px;
+  margin-top: 24px;
   margin-bottom: 34px;
 }
 .inventory-hero .heading {
