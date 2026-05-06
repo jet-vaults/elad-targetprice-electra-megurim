@@ -1525,8 +1525,8 @@ select {
 }
 
 .site-header:not(.is-scrolled):not(.is-menu-open) .site-header__logo--project img {
-  filter: none;
-  opacity: 1;
+  filter: brightness(0) invert(1);
+  opacity: 0.96;
 }
 
 .site-nav {
