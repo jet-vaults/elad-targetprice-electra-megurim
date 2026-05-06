@@ -1509,9 +1509,9 @@ select {
   width: 74px;
   height: 74px;
   padding: 6px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: 0 6px 20px rgba(5, 15, 36, 0.14);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .site-header__logo--project img,
@@ -1766,6 +1766,35 @@ select {
   font-size: 1.04rem;
 }
 
+.featured-documents {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.featured-documents a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 18px;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 999px;
+  color: var(--white);
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.25;
+  text-decoration: none;
+  transition: background 0.25s var(--ease), color 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+
+.featured-documents a:hover {
+  background: var(--white);
+  border-color: var(--white);
+  color: var(--blue-900);
+}
+
 .featured-stats {
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.10);
@@ -1894,16 +1923,6 @@ select {
   color: rgba(255, 255, 255, 0.58);
 }
 
-.site-footer__documents {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 14px 20px;
-  font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.72);
-}
-
-.site-footer__documents a,
 .site-footer__links a {
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -2081,6 +2100,7 @@ select {
 
   .hero__panel {
     width: 100%;
+    border-radius: 8px;
     max-width: none;
     padding: 26px 24px;
     background: rgba(5, 15, 36, 0.72);
