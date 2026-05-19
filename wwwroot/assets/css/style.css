@@ -318,9 +318,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   transform: translateY(-2px);
   box-shadow: 0 12px 28px rgba(10, 29, 63, 0.28);
 }
-.btn--inventory {
-  font-weight: 800;
-}
 .btn--ghost {
   background: rgba(255, 255, 255, 0.10);
   color: var(--white);
