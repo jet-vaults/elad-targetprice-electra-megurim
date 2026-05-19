@@ -1507,8 +1507,8 @@ select {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: clamp(150px, 12vw, 220px);
-  height: 58px;
+  width: clamp(168px, 13.5vw, 242px);
+  height: 64px;
   padding: 0;
   border-radius: 0;
   background: transparent;
@@ -1523,6 +1523,10 @@ select {
   object-fit: contain;
   filter: none;
   opacity: 1;
+}
+
+.inventory-page .site-header__logo--project {
+  width: clamp(154px, 12.5vw, 214px);
 }
 
 .site-header:not(.is-scrolled):not(.is-menu-open) .site-header__logo--project img {
@@ -2211,11 +2215,11 @@ select {
 
   .site-header__logo--project {
     display: inline-flex;
-    width: clamp(84px, 24vw, 96px);
-    height: 30px;
+    width: clamp(94px, 27vw, 108px);
+    height: 34px;
     padding: 0;
     position: static;
-    flex: 0 0 clamp(84px, 24vw, 96px);
+    flex: 0 0 clamp(94px, 27vw, 108px);
   }
 
   .site-header::after {
