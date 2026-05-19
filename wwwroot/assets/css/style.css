@@ -318,6 +318,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   transform: translateY(-2px);
   box-shadow: 0 12px 28px rgba(10, 29, 63, 0.28);
 }
+.btn--inventory {
+  font-weight: 800;
+}
 .btn--ghost {
   background: rgba(255, 255, 255, 0.10);
   color: var(--white);
@@ -1035,8 +1038,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
    Gallery
    ========================================================================== */
 .gallery-slider {
-  max-width: 1080px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: none;
+  margin: 0;
 }
 .gallery-slider__stage {
   position: relative;
@@ -1769,12 +1773,19 @@ select {
   font-size: 1.04rem;
 }
 
+.featured-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  margin-top: 24px;
+}
+
 .featured-download-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  margin-top: 24px;
   min-height: 48px;
   padding: 0 22px;
   border: 1px solid rgba(255, 255, 255, 0.42);
@@ -1805,6 +1816,32 @@ select {
 
 .featured-download-link:hover .arrow {
   transform: translateX(-3px);
+}
+
+.featured-download-link--inventory {
+  background: var(--white);
+  border-color: var(--white);
+  color: var(--blue-900);
+  font-weight: 800;
+  padding-inline: 30px;
+  box-shadow: 0 10px 28px rgba(5, 15, 36, 0.22);
+}
+
+.featured-download-link--inventory:hover {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(255, 255, 255, 0.92);
+  color: var(--blue-900);
+}
+
+@media (max-width: 560px) {
+  .featured-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .featured-download-link {
+    width: 100%;
+  }
 }
 
 .featured-stats {
