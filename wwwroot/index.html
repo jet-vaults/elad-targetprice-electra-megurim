@@ -178,22 +178,19 @@
   <!-- THE NEW HEART (location) -->
   <section class="section section--tinted" id="location">
     <div class="container">
-      <div class="split">
-        <div class="split__media reveal">
-          <img src="assets/gallery/render-11_10.jpg" alt="" loading="lazy">
-          <span class="split__badge">תמל/1081</span>
-        </div>
-        <div class="split__text reveal reveal-delay-1">
-          <span class="eyebrow">המיקום</span>
-          <h2 class="heading">הרובע החדש של אלעד</h2>
-          <p class="body-text">פרויקט אלקטרה באלעד ממוקם בלב הרובע החדש של אלעד, במסגרת תוכנית תמל/1081. זהו מהלך תכנוני רחב היקף על שטח של כ-2,600 דונם, הכולל כ-4,200 יחידות דיור לצד שטחי ציבור, פארקים, מסחר ותעסוקה.</p>
-          <p class="body-text">הרובע החדש מרכז את הצמיחה העתידית של העיר ומציע שכונה מתוכננת מהיסוד, עם תשתיות מתקדמות ומעטפת מלאה לחיי משפחה.</p>
-          <ul class="metric-list">
-            <li><strong>2,600</strong><span>דונם</span></li>
-            <li><strong>4,200</strong><span>יחידות דיור בתמל</span></li>
-            <li><strong>2,765</strong><span>במתחמי 4-5</span></li>
-          </ul>
-        </div>
+      <div class="location-intro reveal">
+        <span class="eyebrow">המיקום</span>
+        <h2 class="heading">הרובע החדש של אלעד</h2>
+        <p class="body-text">פרויקט אלקטרה באלעד ממוקם בלב הרובע החדש של אלעד, במסגרת תוכנית תמל/1081. זהו מהלך תכנוני רחב היקף על שטח של כ-2,600 דונם, הכולל כ-4,200 יחידות דיור לצד שטחי ציבור, פארקים, מסחר ותעסוקה.</p>
+        <p class="body-text">הרובע החדש מרכז את הצמיחה העתידית של העיר ומציע שכונה מתוכננת מהיסוד, עם תשתיות מתקדמות ומעטפת מלאה לחיי משפחה.</p>
+        <ul class="metric-list metric-list--center">
+          <li><strong>2,600</strong><span>דונם</span></li>
+          <li><strong>4,200</strong><span>יחידות דיור בתמל</span></li>
+          <li><strong>2,765</strong><span>במתחמי 4-5</span></li>
+        </ul>
+      </div>
+      <div class="location-map reveal reveal-delay-1">
+        <img src="assets/context/elad-map.png" alt="מפת סביבת פרויקט אלקטרה באלעד" loading="lazy">
       </div>
     </div>
   </section>
@@ -459,6 +456,37 @@
           </span>
         </a>
       </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section section--contact" id="contact">
+    <div class="container contact-section__grid">
+      <div class="contact-section__copy reveal">
+        <span class="eyebrow">יצירת קשר</span>
+        <h2 class="heading">מתעניינים בפרויקט?</h2>
+        <p class="body-text">השאירו פרטים ונציג מטעם אלקטרה מגורים יחזור אליכם עם מידע נוסף על הדירות, תהליך ההרשמה והשלבים הבאים.</p>
+        <div class="contact-section__media">
+          <img src="assets/gallery/display/render-11_16.jpg" alt="הדמיית פרויקט אלקטרה באלעד" loading="lazy">
+        </div>
+      </div>
+      <form class="contact-form reveal reveal-delay-1" action="#" method="post">
+        <h3 class="contact-form__title">נשמח לחזור אליכם</h3>
+        <div class="contact-field">
+          <label for="contact-name">שם מלא</label>
+          <input id="contact-name" name="full_name" type="text" autocomplete="name" placeholder="שם מלא">
+        </div>
+        <div class="contact-field">
+          <label for="contact-phone">טלפון</label>
+          <input id="contact-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="rtl" placeholder="מספר טלפון">
+        </div>
+        <div class="contact-field">
+          <label for="contact-email">אימייל</label>
+          <input id="contact-email" name="email" type="email" autocomplete="email" placeholder="name@example.com">
+        </div>
+        <button class="contact-submit" type="button">שליחה</button>
+        <p class="contact-note">בלחיצה על שליחה הנכם מאשרים יצירת קשר בנוגע לפרויקט.</p>
+      </form>
     </div>
   </section>
 
