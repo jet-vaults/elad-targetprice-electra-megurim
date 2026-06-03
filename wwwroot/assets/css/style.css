@@ -401,8 +401,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(180deg, rgba(5, 15, 36, 0.55) 0%, rgba(5, 15, 36, 0.20) 30%, rgba(5, 15, 36, 0.85) 100%),
-    radial-gradient(ellipse at 50% 110%, rgba(10, 29, 63, 0.55), transparent 60%);
+    linear-gradient(180deg, rgba(30, 90, 160, 0.45) 0%, rgba(30, 90, 160, 0.25) 40%, rgba(20, 60, 130, 0.55) 100%);
 }
 .hero__grain {
   position: absolute;
@@ -1672,17 +1671,17 @@ select {
 }
 
 .hero {
-  min-height: min(640px, 100svh);
+  min-height: min(820px, 100svh);
   justify-content: center;
 }
 
 .hero__overlay {
   background:
-    linear-gradient(180deg, rgba(5, 15, 36, 0.38) 0%, rgba(5, 15, 36, 0.18) 42%, rgba(5, 15, 36, 0.56) 100%);
+    linear-gradient(180deg, rgba(30, 90, 160, 0.45) 0%, rgba(30, 90, 160, 0.25) 40%, rgba(20, 60, 130, 0.55) 100%);
 }
 
 .hero__inner {
-  min-height: min(640px, 100svh);
+  min-height: min(820px, 100svh);
   padding: calc(var(--header-h) + 32px) 36px 72px;
   display: flex;
   align-items: center;
@@ -2458,11 +2457,11 @@ select {
   }
 
   .hero {
-    min-height: 445px;
+    min-height: 560px;
   }
 
   .hero__inner {
-    min-height: 445px;
+    min-height: 560px;
     padding: calc(var(--header-h) + 24px) 22px 42px;
   }
 
