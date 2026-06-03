@@ -145,7 +145,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .site-nav a {
   font-size: 14.5px;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0;
   color: var(--ink);
   position: relative;
