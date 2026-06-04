@@ -549,6 +549,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .section--tinted { background: var(--off-white); }
 .section--paper { background: var(--paper); }
+#gallery { padding-top: clamp(36px, 4vw, 56px); }
 .section--project {
   background: linear-gradient(180deg, var(--white) 0%, var(--off-white) 100%);
   padding-top: clamp(80px, 8vw, 120px);
