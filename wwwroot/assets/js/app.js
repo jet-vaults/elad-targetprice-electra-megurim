@@ -3,13 +3,7 @@
 
   /* ========== Sticky header state ========== */
   const header = document.querySelector('.site-header');
-  const lockScrolled = document.body.classList.contains('inventory-page');
-  const onScroll = () => {
-    if (lockScrolled || window.scrollY > 24) header.classList.add('is-scrolled');
-    else header.classList.remove('is-scrolled');
-  };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+  header.classList.add('is-scrolled');
 
   /* ========== Mobile navigation ========== */
   const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
