@@ -98,9 +98,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   transition: background 0.4s var(--ease), border-color 0.4s var(--ease), box-shadow 0.4s var(--ease), padding 0.4s var(--ease);
 }
 .site-header.is-scrolled {
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: saturate(180%) blur(18px);
-  -webkit-backdrop-filter: saturate(180%) blur(18px);
+  background: #ffffff;
   border-bottom-color: var(--line-soft);
   box-shadow: 0 1px 0 rgba(10, 29, 63, 0.04);
 }
@@ -138,13 +136,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 .site-nav {
   display: flex;
-  gap: 36px;
+  gap: 48px;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
 }
 .site-nav a {
-  font-size: 14.5px;
+  font-size: 16px;
   font-weight: 500;
   letter-spacing: 0;
   color: var(--ink);
@@ -1642,10 +1640,10 @@ select {
 .site-header__cta,
 .site-header:not(.is-scrolled):not(.is-menu-open) .site-header__cta,
 .inventory-page .site-header__cta {
-  background: var(--white) !important;
-  border-color: rgba(10, 29, 63, 0.10) !important;
-  color: var(--blue-900) !important;
-  box-shadow: 0 8px 22px rgba(5, 15, 36, 0.12) !important;
+  background: #0080c4 !important;
+  border-color: #0080c4 !important;
+  color: #ffffff !important;
+  box-shadow: 0 8px 22px rgba(0, 128, 196, 0.25) !important;
   backdrop-filter: none !important;
   height: 56px;
   min-height: 56px;
@@ -1668,8 +1666,8 @@ select {
 .site-header__cta:hover,
 .site-header:not(.is-scrolled):not(.is-menu-open) .site-header__cta:hover,
 .inventory-page .site-header__cta:hover {
-  background: var(--blue-50) !important;
-  color: var(--blue-900) !important;
+  background: #006aa8 !important;
+  color: #ffffff !important;
   transform: translateY(-1px);
 }
 
