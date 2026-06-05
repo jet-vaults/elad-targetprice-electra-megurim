@@ -617,6 +617,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 .section-header { margin-bottom: 56px; max-width: 820px; }
+#transport .section-header, #city .section-header { margin-bottom: 24px; }
 .section-header--wide { max-width: none; }
 .section-header--wide .body-text--lede { max-width: none; }
 .section-header.center { margin-inline: auto; text-align: center; }
@@ -747,6 +748,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 .location-intro .eyebrow {
   justify-content: center;
+}
+
+.location-intro .heading {
+  margin-bottom: 32px;
 }
 
 .location-intro .body-text {
