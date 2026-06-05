@@ -1472,6 +1472,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   justify-content: flex-start;
   margin-bottom: 8px;
 }
+.inventory-hero__back {
+  background: #0080c4 !important;
+  border-color: #0080c4 !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
 .inventory-hero .heading {
   margin: 0 0 16px;
 }
