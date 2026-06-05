@@ -1477,6 +1477,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   border-color: #0080c4 !important;
   color: #ffffff !important;
   box-shadow: none !important;
+  border-radius: 50px !important;
 }
 .inventory-hero .heading {
   margin: 0 0 16px;
