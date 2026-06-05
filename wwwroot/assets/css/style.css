@@ -1777,8 +1777,21 @@ select {
   border-top: 0;
 }
 
-/* Map zoom */
-.location-map { position: relative; }
+/* Map zoom + magnifier */
+.location-map { position: relative; cursor: crosshair; }
+.map-lens {
+  display: none;
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 128, 196, 0.7);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.3), inset 0 0 0 1px rgba(255,255,255,0.4);
+  pointer-events: none;
+  z-index: 10;
+  background-repeat: no-repeat;
+}
+
 .map-zoom-btn {
   position: absolute;
   top: 12px;

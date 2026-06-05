@@ -186,4 +186,33 @@
       if (e.key === 'ArrowLeft') navLightbox(1);
     });
   }
+
+  /* ========== Map magnifier lens ========== */
+  const mapWrap = document.querySelector('.location-map');
+  if (mapWrap) {
+    const mapImg = mapWrap.querySelector('img');
+    const lens = document.createElement('div');
+    lens.className = 'map-lens';
+    mapWrap.appendChild(lens);
+    const ZOOM = 2.8;
+    const LENS = 160;
+
+    const move = (e) => {
+      const r = mapImg.getBoundingClientRect();
+      const wr = mapWrap.getBoundingClientRect();
+      let x = e.clientX - r.left;
+      let y = e.clientY - r.top;
+      x = Math.max(LENS / 2, Math.min(x, r.width  - LENS / 2));
+      y = Math.max(LENS / 2, Math.min(y, r.height - LENS / 2));
+      lens.style.left = (x - LENS / 2 + r.left - wr.left) + 'px';
+      lens.style.top  = (y - LENS / 2 + r.top  - wr.top)  + 'px';
+      lens.style.backgroundImage    = `url(${mapImg.src})`;
+      lens.style.backgroundSize     = `${r.width * ZOOM}px ${r.height * ZOOM}px`;
+      lens.style.backgroundPosition = `${-(x * ZOOM - LENS / 2)}px ${-(y * ZOOM - LENS / 2)}px`;
+    };
+
+    mapWrap.addEventListener('mouseenter', () => { lens.style.display = 'block'; });
+    mapWrap.addEventListener('mouseleave', () => { lens.style.display = 'none'; });
+    mapWrap.addEventListener('mousemove', move);
+  }
 })();
