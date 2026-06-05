@@ -1673,10 +1673,11 @@ select {
   color: #ffffff !important;
   box-shadow: none !important;
   backdrop-filter: none !important;
-  height: 56px;
-  min-height: 56px;
-  padding: 0 26px !important;
+  height: auto;
+  min-height: unset;
+  padding: 10px 24px !important;
   align-items: center;
+  align-self: center;
   gap: 10px;
   direction: rtl;
   font-weight: 600;
