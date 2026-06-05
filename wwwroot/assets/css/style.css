@@ -1673,9 +1673,7 @@ select {
   color: #ffffff !important;
   box-shadow: none !important;
   backdrop-filter: none !important;
-  height: auto;
-  min-height: unset;
-  padding: 10px 24px !important;
+  min-height: 56px;
   align-items: center;
   align-self: center;
   gap: 10px;
