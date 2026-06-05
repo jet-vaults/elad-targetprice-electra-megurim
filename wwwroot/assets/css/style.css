@@ -1464,8 +1464,17 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   margin-top: 24px;
   margin-bottom: 34px;
 }
+.inventory-title-row {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.inventory-title-row .eyebrow {
+  margin-bottom: 0;
+}
 .inventory-hero .heading {
-  margin: 8px 0 16px;
+  margin: 0 0 16px;
 }
 
 .inventory-hero__back {
