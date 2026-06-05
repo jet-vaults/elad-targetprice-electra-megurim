@@ -167,8 +167,15 @@
         </ul>
       </div>
       <div class="location-map reveal reveal-delay-1">
+        <button class="map-zoom-btn" onclick="document.getElementById('map-modal').showModal()" aria-label="הגדל מפה">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </button>
         <img src="assets/context/elad-map.png" alt="מפת סביבת פרויקט אלקטרה באלעד" loading="lazy">
       </div>
+      <dialog id="map-modal" class="map-modal">
+        <button class="map-modal__close" onclick="document.getElementById('map-modal').close()" aria-label="סגור">&times;</button>
+        <img src="assets/context/elad-map.png" alt="מפת סביבת פרויקט אלקטרה באלעד">
+      </dialog>
     </div>
   </section>
 
@@ -321,18 +328,38 @@
     </div>
   </section>
 
-  <!-- PARKS - large statement -->
-  <section class="section section--statement" id="parks">
-    <div class="statement-bg" aria-hidden="true">
-      <img src="assets/context/ben-shemen-forest.jpg" alt="" loading="lazy">
-    </div>
+  <!-- PARKS -->
+  <section class="section section--nature" id="parks">
     <div class="container">
-      <div class="statement reveal">
-        <span class="eyebrow eyebrow--light">טבע ומרחב</span>
-        <h2 class="heading heading--display statement__heading">פארקים, מרחבים פתוחים<br>ואיכות חיים</h2>
-        <p class="statement__text">לצד הפיתוח העירוני, נהנית השכונה מקרבה לשטחי טבע פתוחים, מרחב ירוק רחב עם מסלולי הליכה, רכיבה ופנאי למשפחות.</p>
-        <p class="statement__text">במסגרת תמל/1081 מתוכננים שטחים ציבוריים פתוחים בהיקף רחב - פארקים שכונתיים, רצועות ירוקות ומרחבי משחק ופנאי.</p>
-        <p class="statement__text statement__text--small">במרחק נסיעה קצר ניתן ליהנות מיער נחשונים וממרחבי הטבע של יער בן שמן.</p>
+      <div class="section-header center reveal">
+        <span class="eyebrow">טבע ומרחב</span>
+      </div>
+    </div>
+    <div class="nature-panels">
+      <div class="nature-panels__image">
+        <img src="assets/context/ben-shemen-forest.jpg" alt="יער בן שמן" loading="lazy">
+      </div>
+      <div class="nature-panels__content reveal">
+        <h2 class="heading">פארקים, מרחבים פתוחים ואיכות חיים</h2>
+        <p class="body-text">לצד הפיתוח העירוני, נהנית השכונה מקרבה לשטחי טבע פתוחים ומרחב ירוק רחב עם מסלולי הליכה, רכיבה ופנאי למשפחות.</p>
+        <ul class="nature-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22v-7m0 0C12 10 7 6 2 6c0 5 4 9 10 9zm0 0c0-5 5-9 10-9-1 5-5 9-10 9z"/></svg>
+            <div><strong>יער בן שמן</strong><span>מרחק נסיעה קצר לשטחי טבע פתוחים רחבים</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            <div><strong>פארקים שכונתיים</strong><span>מתוכננים בהיקף רחב במסגרת תמל/1081</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12h18M3 12c0-4 3-7 9-9M3 12c0 4 3 7 9 9M21 12c0-4-3-7-9-9M21 12c0 4-3 7-9 9"/></svg>
+            <div><strong>מסלולי הליכה ורכיבה</strong><span>רצועות ירוקות ומרחבי פנאי לכל המשפחה</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8 2 4 5.5 4 10c0 6 8 12 8 12s8-6 8-12c0-4.5-4-8-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div><strong>יער נחשונים</strong><span>שמורת טבע ומרחבי ירוק בסמיכות לשכונה</span></div>
+          </li>
+        </ul>
       </div>
     </div>
   </section>
