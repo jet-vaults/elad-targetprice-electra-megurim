@@ -1458,20 +1458,22 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   max-width: var(--container);
   margin: 0 auto;
   padding: 34px 36px 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .inventory-hero {
-  max-width: 780px;
-  margin-top: 24px;
-  margin-bottom: 34px;
-}
-.inventory-title-row {
+  max-width: 640px;
+  margin: 0 auto 34px;
+  text-align: start;
   display: flex;
-  align-items: baseline;
-  gap: 16px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: clamp(40px, 6vh, 80px);
 }
-.inventory-title-row .eyebrow {
-  margin-bottom: 0;
+.inventory-hero .eyebrow {
+  justify-content: flex-start;
+  margin-bottom: 8px;
 }
 .inventory-hero .heading {
   margin: 0 0 16px;
