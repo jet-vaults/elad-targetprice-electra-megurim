@@ -1292,6 +1292,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   opacity: 0.92;
 }
 .company .eyebrow--light { color: var(--blue-300); }
+.company__copy .eyebrow { justify-content: center; }
 .company__copy .heading { margin-top: 6px; margin-bottom: 24px; }
 .company-stats {
   list-style: none;
@@ -1596,13 +1597,13 @@ select {
   position: static;
   flex: 0 1 auto;
   justify-content: center;
-  gap: clamp(12px, 1.35vw, 22px);
+  gap: clamp(18px, 2vw, 36px);
   transform: none;
   min-width: 0;
 }
 
 .site-nav a {
-  font-size: clamp(14px, 1.05vw, 16.5px);
+  font-size: clamp(15px, 1.2vw, 18px);
   font-weight: 600;
   letter-spacing: 0;
   white-space: nowrap;
@@ -1755,6 +1756,8 @@ select {
   letter-spacing: 0;
   margin-bottom: 14px;
   text-transform: none;
+  color: #0080c4 !important;
+  justify-content: center;
 }
 
 .eyebrow::before {
