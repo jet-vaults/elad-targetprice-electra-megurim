@@ -125,8 +125,23 @@
 
   const setGalleryIndex = (index) => {
     if (!galleryItems.length || !galleryMain || !galleryMainImg) return;
+    const prevSrc = galleryMainImg.currentSrc || galleryMainImg.src;
     currentIndex = (index + galleryItems.length) % galleryItems.length;
     const item = galleryItems[currentIndex];
+
+    if (prevSrc && prevSrc !== new URL(item.href, location.href).href) {
+      // Classic crossfade: keep the outgoing image on top and fade it out
+      const fade = document.createElement('img');
+      fade.className = 'gallery-slider__fade';
+      fade.src = prevSrc;
+      fade.alt = '';
+      fade.setAttribute('aria-hidden', 'true');
+      galleryMain.appendChild(fade);
+      requestAnimationFrame(() => requestAnimationFrame(() => { fade.style.opacity = '0'; }));
+      fade.addEventListener('transitionend', () => fade.remove());
+      window.setTimeout(() => fade.remove(), 800);
+    }
+
     galleryMain.href = item.href;
     galleryMain.classList.toggle('is-plan', galleryThumbs[currentIndex].classList.contains('gallery-thumb--plan'));
     galleryMainImg.src = item.href;

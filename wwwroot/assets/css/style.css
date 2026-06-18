@@ -1102,6 +1102,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .gallery-slider__main {
   display: block;
+  position: relative;
   width: 100%;
   height: 100%;
   cursor: zoom-in;
@@ -1112,7 +1113,18 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   object-fit: cover;
   display: block;
   image-rendering: auto;
-  transition: opacity 0.25s var(--ease);
+}
+/* Classic crossfade: cloned outgoing image fades out over the new one */
+.gallery-slider__fade {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 0.55s var(--ease);
 }
 .gallery-slider__main.is-plan img {
   object-fit: contain;
@@ -1146,12 +1158,15 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .gallery-slider__arrow--prev { inset-inline-end: 18px; }
 .gallery-slider__arrow--next { inset-inline-start: 18px; }
 .gallery-thumbs {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(82px, 1fr));
-  gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
   margin-top: 16px;
 }
 .gallery-thumb {
+  flex: 0 0 auto;
+  width: clamp(96px, 12vw, 132px);
   aspect-ratio: 4 / 3;
   border-radius: 10px;
   overflow: hidden;
@@ -1188,12 +1203,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .gallery-slider__arrow--next { inset-inline-start: 10px; }
   .gallery-thumbs {
     display: flex;
+    flex-wrap: nowrap;
     overflow-x: auto;
     padding-bottom: 8px;
     scroll-snap-type: x mandatory;
   }
   .gallery-thumb {
     flex: 0 0 82px;
+    width: 82px;
     scroll-snap-align: start;
   }
 }
@@ -1583,7 +1600,7 @@ select {
 .site-header__inner,
 .site-header.is-scrolled .site-header__inner {
   padding: 12px 28px;
-  gap: 24px;
+  gap: 18px;
 }
 
 .site-header__logo {
@@ -1594,7 +1611,7 @@ select {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: clamp(168px, 13.5vw, 242px);
+  width: clamp(150px, 12vw, 196px);
   height: 64px;
   padding: 0;
   border-radius: 0;
@@ -1625,13 +1642,13 @@ select {
   position: static;
   flex: 0 1 auto;
   justify-content: center;
-  gap: clamp(18px, 2vw, 36px);
+  gap: clamp(10px, 1.1vw, 16px);
   transform: none;
   min-width: 0;
 }
 
 .site-nav a {
-  font-size: clamp(15px, 1.2vw, 18px);
+  font-size: clamp(13px, 1vw, 15px);
   font-weight: 600;
   letter-spacing: 0;
   white-space: nowrap;
@@ -2469,7 +2486,7 @@ select {
   transform: none;
 }
 
-@media (max-width: 1180px) {
+@media (max-width: 1280px) {
   .site-header__inner,
   .site-header.is-scrolled .site-header__inner {
     direction: ltr;
