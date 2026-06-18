@@ -2476,7 +2476,34 @@ select {
   }
 
   .site-header__logo--project {
-    display: none;
+    display: inline-flex;
+    order: 0;
+    width: auto;
+    height: 44px;
+    padding: 6px 12px;
+    flex: 0 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(5, 15, 36, 0.16);
+  }
+
+  .site-header.is-scrolled .site-header__logo--project,
+  .site-header.is-menu-open .site-header__logo--project {
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .site-header__logo--project img,
+  .site-header.is-scrolled .site-header__logo--project img,
+  .site-header.is-menu-open .site-header__logo--project img {
+    height: 100%;
+    width: auto;
+  }
+
+  .site-header:not(.is-scrolled):not(.is-menu-open) .site-header__logo--project img {
+    filter: none;
+    opacity: 1;
   }
 
   .site-header__actions {
@@ -2546,14 +2573,7 @@ select {
   }
 
   .hero__mobile-logo {
-    display: block;
-    width: clamp(142px, 22vw, 210px);
-    height: auto;
-    margin: 0 auto 18px;
-    padding: 8px 12px;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.92);
-    box-shadow: 0 10px 28px rgba(5, 15, 36, 0.16);
+    display: none;
   }
 }
 
@@ -2604,12 +2624,11 @@ select {
   }
 
   .site-header__logo--project {
-    display: none;
-    width: clamp(94px, 27vw, 108px);
-    height: 34px;
-    padding: 0;
+    display: inline-flex;
+    height: 40px;
+    padding: 5px 10px;
     position: static;
-    flex: 0 0 clamp(94px, 27vw, 108px);
+    flex: 0 0 auto;
   }
 
   .site-header::after {
@@ -2619,8 +2638,23 @@ select {
   .mobile-nav-toggle {
     display: inline-flex;
     position: static;
-    flex: 0 0 42px;
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
     z-index: 3;
+  }
+
+  .site-header:not(.is-scrolled):not(.is-menu-open) .mobile-nav-toggle {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(255, 255, 255, 0.95);
+    color: var(--blue-900);
+    box-shadow: 0 6px 18px rgba(5, 15, 36, 0.16);
+    backdrop-filter: none;
+  }
+
+  .mobile-nav-toggle span {
+    width: 20px;
+    height: 2.5px;
   }
 
   .mobile-project-logo-direct {
