@@ -1642,7 +1642,7 @@ select {
   position: static;
   flex: 0 1 auto;
   justify-content: center;
-  gap: clamp(10px, 1.1vw, 16px);
+  gap: clamp(13px, 1.4vw, 20px);
   transform: none;
   min-width: 0;
 }
