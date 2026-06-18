@@ -158,8 +158,29 @@
   if (galleryPrev) galleryPrev.addEventListener('click', () => setGalleryIndex(currentIndex - 1));
   if (galleryNext) galleryNext.addEventListener('click', () => setGalleryIndex(currentIndex + 1));
   if (galleryMain) {
+    const stage = galleryMain.closest('.gallery-slider__stage') || galleryMain;
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let didSwipe = false;
+    stage.addEventListener('touchstart', (e) => {
+      if (e.touches.length !== 1) return;
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+      didSwipe = false;
+    }, { passive: true });
+    stage.addEventListener('touchend', (e) => {
+      if (!e.changedTouches.length) return;
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      const dy = e.changedTouches[0].clientY - touchStartY;
+      if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)) {
+        didSwipe = true;
+        // Swipe left -> next image, swipe right -> previous image
+        setGalleryIndex(currentIndex + (dx < 0 ? 1 : -1));
+      }
+    });
     galleryMain.addEventListener('click', (e) => {
       e.preventDefault();
+      if (didSwipe) { didSwipe = false; return; }
       openLightbox(currentIndex);
     });
   }

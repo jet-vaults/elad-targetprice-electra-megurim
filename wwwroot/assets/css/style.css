@@ -2483,7 +2483,7 @@ select {
 
   .site-header__logo--project {
     display: inline-flex;
-    order: 0;
+    order: 2;
     width: auto;
     height: 44px;
     padding: 6px 12px;
@@ -2491,6 +2491,11 @@ select {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 12px;
     box-shadow: 0 6px 18px rgba(5, 15, 36, 0.16);
+  }
+
+  /* Match the inventory page logo to the home page (override desktop width) */
+  .inventory-page .site-header__logo--project {
+    width: auto;
   }
 
   .site-header.is-scrolled .site-header__logo--project,
@@ -2517,7 +2522,7 @@ select {
   }
 
   .mobile-nav-toggle {
-    order: 2;
+    order: 0;
   }
 
   .site-nav {
