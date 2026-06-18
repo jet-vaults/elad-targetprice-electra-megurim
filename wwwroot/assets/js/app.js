@@ -45,6 +45,18 @@
   window.addEventListener('scroll', updateProgress, { passive: true });
   updateProgress();
 
+  /* ========== Sticky contact CTA ========== */
+  const stickyCta = document.querySelector('.sticky-cta');
+  const contactSection = document.getElementById('contact');
+  if (stickyCta && contactSection && 'IntersectionObserver' in window) {
+    const ctaObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        stickyCta.classList.toggle('is-hidden', entry.isIntersecting);
+      });
+    }, { threshold: 0.18 });
+    ctaObserver.observe(contactSection);
+  }
+
   /* ========== Hero slideshow ========== */
   const slides = Array.from(document.querySelectorAll('.hero__slide'));
   if (slides.length > 1) {
