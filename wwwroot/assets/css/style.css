@@ -1158,17 +1158,15 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .gallery-slider__arrow--prev { inset-inline-end: 18px; }
 .gallery-slider__arrow--next { inset-inline-start: 18px; }
 .gallery-thumbs {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
   margin-top: 16px;
 }
 .gallery-thumb {
-  flex: 0 0 auto;
-  width: clamp(96px, 12vw, 132px);
-  aspect-ratio: 4 / 3;
-  border-radius: 10px;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 12px;
   overflow: hidden;
   background: var(--white);
   border: 2px solid transparent;
@@ -1202,16 +1200,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .gallery-slider__arrow--prev { inset-inline-end: 10px; }
   .gallery-slider__arrow--next { inset-inline-start: 10px; }
   .gallery-thumbs {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    padding-bottom: 8px;
-    scroll-snap-type: x mandatory;
-  }
-  .gallery-thumb {
-    flex: 0 0 82px;
-    width: 82px;
-    scroll-snap-align: start;
+    gap: 8px;
   }
 }
 
