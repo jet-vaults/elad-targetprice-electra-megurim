@@ -2745,4 +2745,32 @@ select {
   .company__logo {
     justify-self: center;
   }
+
+  /* Neighborhood + quality-of-life cards become a horizontal swipe slider */
+  .feature-grid,
+  .services {
+    display: flex;
+    grid-template-columns: none;
+    flex-wrap: nowrap;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-padding-inline: 22px;
+    padding-bottom: 8px;
+    scrollbar-width: none;
+  }
+
+  .feature-grid::-webkit-scrollbar,
+  .services::-webkit-scrollbar {
+    display: none;
+  }
+
+  .feature-grid li,
+  .service-card {
+    flex: 0 0 80%;
+    max-width: 80%;
+    scroll-snap-align: center;
+    box-shadow: var(--shadow-sm);
+  }
 }
