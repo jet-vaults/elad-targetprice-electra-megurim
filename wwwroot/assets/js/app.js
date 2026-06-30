@@ -263,4 +263,48 @@
     mapWrap.addEventListener('mouseleave', () => { lens.style.display = 'none'; });
     mapWrap.addEventListener('mousemove', move);
   }
+
+  /* ========== Contact form (Formspree AJAX) ========== */
+  const contactForm = document.getElementById('contact-form');
+  const contactStatus = document.getElementById('contact-status');
+  if (contactForm) {
+    const submitBtn = contactForm.querySelector('.contact-submit');
+    const defaultLabel = submitBtn ? submitBtn.textContent : 'שליחה';
+    const showStatus = (msg, type) => {
+      if (!contactStatus) return;
+      contactStatus.textContent = msg;
+      contactStatus.classList.toggle('is-error', type === 'error');
+      contactStatus.classList.toggle('is-success', type === 'success');
+      contactStatus.hidden = false;
+    };
+
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      // Native validation covers required fields + the consent checkbox
+      if (!contactForm.reportValidity()) return;
+
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'שולח...'; }
+      if (contactStatus) contactStatus.hidden = true;
+
+      try {
+        const res = await fetch(contactForm.action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { Accept: 'application/json' }
+        });
+        if (res.ok) {
+          contactForm.reset();
+          showStatus('תודה! פרטיכם התקבלו ונחזור אליכם בהקדם.', 'success');
+        } else {
+          const data = await res.json().catch(() => null);
+          const detail = data && data.errors ? data.errors.map((er) => er.message).join(' ') : '';
+          showStatus(detail || 'אירעה שגיאה בשליחה. נסו שוב או צרו קשר טלפוני.', 'error');
+        }
+      } catch (err) {
+        showStatus('אירעה שגיאה בשליחה. בדקו את החיבור לאינטרנט ונסו שוב.', 'error');
+      } finally {
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = defaultLabel; }
+      }
+    });
+  }
 })();

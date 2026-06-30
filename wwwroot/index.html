@@ -555,25 +555,26 @@
           <img src="assets/gallery/display/elad-view-01.jpg" alt="הדמיית פרויקט אלקטרה באלעד" loading="lazy">
         </div>
       </div>
-      <form class="contact-form reveal reveal-delay-1" action="#" method="post">
+      <form class="contact-form reveal reveal-delay-1" id="contact-form" action="https://formspree.io/f/xkolvdwg" method="post">
         <h3 class="contact-form__title">נשמח לחזור אליכם</h3>
         <div class="contact-field">
           <label for="contact-name">שם מלא</label>
-          <input id="contact-name" name="full_name" type="text" autocomplete="name" placeholder="שם מלא">
+          <input id="contact-name" name="full_name" type="text" autocomplete="name" placeholder="שם מלא" required>
         </div>
         <div class="contact-field">
           <label for="contact-phone">טלפון</label>
-          <input id="contact-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="rtl" placeholder="מספר טלפון">
+          <input id="contact-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="rtl" placeholder="מספר טלפון" required>
         </div>
         <div class="contact-field">
           <label for="contact-email">אימייל</label>
-          <input id="contact-email" name="email" type="email" autocomplete="email" placeholder="name@example.com">
+          <input id="contact-email" name="email" type="email" autocomplete="email" placeholder="name@example.com" required>
         </div>
         <label class="contact-consent">
-          <input type="checkbox" name="marketing_consent" value="1">
+          <input type="checkbox" name="marketing_consent" value="1" required>
           <span>אני מאשר/ת קבלת חומרים פרסומיים מחברת אלקטרה מגורים ו/או מי מטעמה ו/או שיחת טלפון שיווקית בנוגע לכל הפרויקטים וזאת גם אם פרטיי נמצאים במאגר "אל תתקשרו אלי" של הרשות להגנת הצרכן.</span>
         </label>
-        <button class="contact-submit" type="button">שליחה</button>
+        <button class="contact-submit" type="submit">שליחה</button>
+        <p class="contact-status" id="contact-status" role="status" aria-live="polite" hidden></p>
       </form>
     </div>
   </section>

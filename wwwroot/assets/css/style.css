@@ -2391,6 +2391,31 @@ select {
   box-shadow: 0 16px 34px rgba(10, 29, 63, 0.24);
 }
 
+.contact-submit:disabled {
+  opacity: 0.65;
+  cursor: progress;
+  transform: none;
+}
+
+.contact-status {
+  margin: 4px 0 0;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  font-weight: 600;
+}
+
+.contact-status.is-success {
+  background: rgba(22, 130, 90, 0.1);
+  color: #167a52;
+}
+
+.contact-status.is-error {
+  background: rgba(200, 40, 40, 0.08);
+  color: #b22424;
+}
+
 .contact-note {
   margin-top: -4px;
   color: var(--muted);
