@@ -2554,6 +2554,10 @@ select {
     display: none;
   }
 
+  .site-header .site-header__cta {
+    display: none !important;
+  }
+
   .mobile-nav-toggle {
     display: inline-flex;
   }
