@@ -586,6 +586,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   letter-spacing: 0;
 }
 .heading--light { color: var(--white); }
+.heading--logo img {
+  display: block;
+  height: clamp(2.6rem, 4.6vw, 3.9rem);
+  width: auto;
+  margin-block: 0.15em 0.1em;
+}
 
 .body-text {
   line-height: 1.85;
