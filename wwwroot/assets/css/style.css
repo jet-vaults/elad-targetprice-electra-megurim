@@ -399,7 +399,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(180deg, rgba(95, 143, 58, 0.45) 0%, rgba(95, 143, 58, 0.25) 40%, rgba(59, 83, 48, 0.55) 100%);
+    linear-gradient(180deg, rgba(18, 22, 18, 0.38) 0%, rgba(18, 22, 18, 0.18) 40%, rgba(12, 16, 12, 0.62) 100%);
 }
 .hero__grain {
   position: absolute;
@@ -1712,7 +1712,7 @@ select {
 
 .hero__overlay {
   background:
-    linear-gradient(180deg, rgba(95, 143, 58, 0.45) 0%, rgba(95, 143, 58, 0.25) 40%, rgba(59, 83, 48, 0.55) 100%);
+    linear-gradient(180deg, rgba(18, 22, 18, 0.38) 0%, rgba(18, 22, 18, 0.18) 40%, rgba(12, 16, 12, 0.62) 100%);
 }
 
 .hero__inner {
